@@ -63,6 +63,14 @@ class DataInitBloc extends Bloc<DataInitEvent, DataInitState> {
 
     await Future<void>.delayed(const Duration(seconds: 3));
 
+    logger('Now saving words');
+    emit(const DataInitSavingState('Inapakia maneno (words) 16,641 ...', 0));
+    for (int i = 0; i < event.words.length; i++) {
+      int progress = (i / event.words.length * 100).toInt();
+      emit(DataInitSavingState(progressDesc(progress), progress));
+      await _dbRepo.saveWord(event.words[i]);
+    }
+
     logger('Now saving idioms');
     emit(const DataInitSavingState('Inapakia nahau (idioms) 527 ...', 0));
     for (int i = 0; i < event.idioms.length; i++) {
@@ -91,14 +99,6 @@ class DataInitBloc extends Bloc<DataInitEvent, DataInitState> {
         (i / event.sayings.length * 100).toInt(),
       ));
       await _dbRepo.saveSaying(event.sayings[i]);
-    }
-
-    logger('Now saving words');
-    emit(const DataInitSavingState('Inapakia maneno (words) 16,641 ...', 0));
-    for (int i = 0; i < event.words.length; i++) {
-      int progress = (i / event.words.length * 100).toInt();
-      emit(DataInitSavingState(progressDesc(progress), progress));
-      await _dbRepo.saveWord(event.words[i]);
     }
 
     _prefRepo.setPrefBool(PrefConstants.dataIsLoadedKey, true);
