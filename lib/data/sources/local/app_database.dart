@@ -14,15 +14,8 @@ import 'dao/words_dao.dart';
 part 'app_database.g.dart';
 
 @Database(
-  version: 1,
-  entities: [
-    History,
-    Idiom,
-    Proverb,
-    Saying,
-    Search,
-    Word,
-  ],
+  version: 2,
+  entities: [History, Idiom, Proverb, Saying, Search, Word],
 )
 abstract class AppDatabase extends FloorDatabase {
   HistoriesDao get historiesDao;
@@ -34,7 +27,5 @@ abstract class AppDatabase extends FloorDatabase {
 }
 
 Future<AppDatabase> buildInMemoryDatabase() {
-  return $FloorAppDatabase
-      .inMemoryDatabaseBuilder()
-      .build();
+  return $FloorAppDatabase.inMemoryDatabaseBuilder().build();
 }
