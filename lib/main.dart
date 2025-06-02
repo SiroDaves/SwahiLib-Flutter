@@ -26,7 +26,7 @@ Future<void> main() async {
   const sentryUrl = String.fromEnvironment("sentryUrl");
 
   await Supabase.initialize(url: supabaseUrl, anonKey: supabaseAnonKey);
-  logger('Supabase init started: $supabaseUrl');
+  logger('Supabase initialisation started: $supabaseUrl');
 
   await configureDependencies(Environments.production);
 

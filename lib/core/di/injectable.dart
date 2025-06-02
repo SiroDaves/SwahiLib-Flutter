@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../utils/app_util.dart';
 import '../utils/constants/app_constants.dart';
-import '../../data/datasources/local/app_database.dart';
+import '../../data/sources/local/app_database.dart';
 import '../../data/repository/db/database_repository_impl.dart';
 import '../../data/repository/db/database_repository.dart';
 import 'injectable.config.dart';

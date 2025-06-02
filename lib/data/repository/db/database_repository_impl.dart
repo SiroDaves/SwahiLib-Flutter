@@ -1,4 +1,4 @@
-import '../../datasources/local/app_database.dart';
+import '../../sources/local/app_database.dart';
 import '../../models/models.dart';
 import '../../../core/utils/app_util.dart';
 import '../../../core/utils/date_util.dart';

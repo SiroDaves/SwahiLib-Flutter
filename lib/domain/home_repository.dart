@@ -1,6 +1,6 @@
 import 'package:http/http.dart';
 
-import '../data/datasources/remote/home_client.dart';
+import '../data/sources/remote/home_client.dart';
 
 class HomeRepository {
   final _client = HomeClient();
